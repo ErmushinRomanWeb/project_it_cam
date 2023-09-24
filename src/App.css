@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-wrapper {
+  display: grid;
+  grid-template-areas: "h h" "n c";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  /* grid-gap: 10px; */
+  width: 1400px;
+}
+/*! ВАЖНО: тут мы каждому дочернему элементу присваиваем название и далее исплоьзуем их для обращения в контексте разметки для позиционирования посредствам grid*/
+.header {
+  grid-area: h;
+  background-image: linear-gradient(145deg, #ee82ee, slateblue, #ffd86a, purple);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
+  background-color: #609679; /* задаем цвет фона */
+  color: white; /* устанавливаем белый цвет текста */
+  padding: 20px 0; /* добавляем отступы сверху и снизу */
+  text-align: center; /* выравниваем текст по центру */
+  /* border-radius: 5px; добавляем скругление углов */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* добавляем тень для ссылок */
+  list-style-type: none;
+}
+
+.nav-link {
+  display: block; /* делаем ссылки блочными элементами */
+  margin-right: 10px; /* сдвигаем их вправо на 10 пикселей */
+  font-size: 20px; /* задаем размер шрифта */
+  line-height: 1.5; /* увеличиваем высоту строки на 1.5 пункта */
+  color: #333; /* задаем цвет текста ссылки */
+  text-decoration: none; /* убираем подчеркивание у ссылок */
+  transition: all 0.5s;
+}
+
+.nav-link:hover{
+  background-image: linear-gradient(145deg, #ee82ee, slateblue, #ffd86a, purple); /* меняем цвет фона при наведении курсора мыши */
+}
+
+.main-content {
+  grid-area: c;
+  background-color: antiquewhite;
+}
+
+
+.header__img {
+  height: 30px;
+  width: 30px;
+}
+
+.main-content__wrapper {
+  height: 120px;
+  box-sizing: border-box ;
+  
+}
+
+.main-content__img {
+  display: block;
+  max-height: 100%;
+  min-width: 100%;
+
+}
+
+.person-image{
+  max-width: 160px;
+}
+
+.person-wrapper{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.person-data {
+  display: block; /* делаем ссылки блочными элементами */
+  margin-right: 10px; /* сдвигаем их вправо на 10 пикселей */
+  font-size: 20px; /* задаем размер шрифта */
+  line-height: 1.5; /* увеличиваем высоту строки на 1.5 пункта */
+  color: #333; /* задаем цвет текста ссылки */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+/* Внимание, тут мы каждому селектору задали псевдоним, через grid-area, потом в родительском элементе использовали  */
