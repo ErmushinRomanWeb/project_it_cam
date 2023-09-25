@@ -1,0 +1,8 @@
+.header {
+    grid-area: h;
+    background-image: linear-gradient(145deg, #ee82ee, slateblue, #ffd86a, purple);
+  }
+
+  .header__img {
+    height: 100%;
+  }

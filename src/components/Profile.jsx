@@ -1,4 +1,5 @@
 import React from "react";
+import "./Profile.css"
 
 const Profile = () => {
   return (
@@ -33,6 +34,15 @@ const Profile = () => {
           <br />
           <button className="add-post-button">add post</button>
         </div>
+      </div>
+      <div className="comments-wrapper">
+        <div>
+          <img
+            src="https://img.freepik.com/premium-vector/yeti-face-square-monster-avatar-cartoon-portrait_80590-17954.jpg?w=826"
+            className="comments-img"
+          />
+        </div>
+        <p className="comment-text">Hello Rman</p>
       </div>
     </main>
   );
