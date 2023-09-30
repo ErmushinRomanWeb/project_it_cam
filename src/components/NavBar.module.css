@@ -8,7 +8,7 @@
   list-style-type: none;
 }
 
-.nav-link {
+.nav__link {
   display: block; /* делаем ссылки блочными элементами */
   margin-right: 10px; /* сдвигаем их вправо на 10 пикселей */
   font-size: 20px; /* задаем размер шрифта */
@@ -18,7 +18,7 @@
   transition: color 0.5s;
 }
 
-.nav-link:hover {
-  color: purple;
+.nav__link:hover {
+  color: rgb(223, 80, 223);
 /* меняем цвет фона при наведении курсора мыши */
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import "./App.css";
+import classes from "./App.module.css"
 import Header from "./components/Header";
 import Nav from "./components/NavBar";
 import Profile from "./components/Profile";
 
 function App() {
   return (
-    <div className="app-wrapper center">
+    <div className={`${classes.app__wrapper} ${classes.center}`}>{/*Так, как в итоге в className должна попасть строка, то мы можем использовать строковый литерал, нельзя записать 2 выражения через запятую потому, что webpack попытается присвоить модулю сразу 2 выражения js, а это невозможно  */}
       <Header />
       <Nav />
       <Profile/>
