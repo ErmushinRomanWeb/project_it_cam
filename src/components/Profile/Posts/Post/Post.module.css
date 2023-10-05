@@ -1,0 +1,9 @@
+.post__wrapper {
+  display: flex;
+  padding: 10px;
+}
+.post__img {
+  display: block;
+  height: 50px;
+}
+/* Внимание, тут мы каждому селектору задали псевдоним, через grid-area, потом в родительском элементе использовали  */
