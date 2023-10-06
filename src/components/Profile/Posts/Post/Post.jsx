@@ -1,16 +1,17 @@
 import React from "react";
 import classes from "./Post.module.css";
 
-const Post = () => {
+const Post = ({name, message, photo}) => {
   return (
     <div className={classes.post__wrapper}>
-      <div>
+      <div className={classes.img__wrapper}>
         <img
-          src="https://img.freepik.com/premium-vector/yeti-face-square-monster-avatar-cartoon-portrait_80590-17954.jpg?w=826"
+          src={photo}
           className={classes.post__img}
         />
       </div>
-      <p className={classes.post__text}>Hello Rman</p>
+      <h3>{name}</h3>
+      <p className={classes.post__text}>{message}</p>
     </div>
     
   );

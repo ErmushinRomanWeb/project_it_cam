@@ -2,8 +2,15 @@
   display: flex;
   padding: 10px;
 }
-.post__img {
+
+.img__wrapper{
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+  padding-right: 20px;
+}
+.post__img  {
   display: block;
-  height: 50px;
+  max-width: 100px;
 }
 /* Внимание, тут мы каждому селектору задали псевдоним, через grid-area, потом в родительском элементе использовали  */
