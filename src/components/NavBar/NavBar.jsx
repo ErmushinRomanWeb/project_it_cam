@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./NavBar.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   console.log(classes);
@@ -7,29 +8,29 @@ const NavBar = () => {
     <nav className= {classes.nav}>
       <ul className={classes.nav__list}>
         <li>
-          <a className={classes.nav__link} href="#">
-            Profile
-          </a>
+          <NavLink className={({isActive}) => isActive ? classes.nav__link__active : classes.nav__link} to="/">
+            Profile{/*я помню, что v8 будет работать с dom объектами, а у каждого dom объекта есть свойтсво, которое содержит объект со всеми атирбутами, по умолчанию, и мы протсо можем менять значение этих атрибутов, присваиваивая объектам классы и меняя в них атрибуты, значения которых влияют на внешний вид объекта */}
+          </NavLink>
         </li>
         <li>
-          <a className= {classes.nav__link} href="#">
-            Messages
-          </a>
+          <NavLink className={({isActive}) => isActive ? classes.nav__link__active : classes.nav__link} to="/Messager">{/*Теперь при нажатии на ссылку меняется url в адресной строке */}
+          Messager
+          </NavLink>
         </li>
         <li>
-          <a className={classes.nav__link} href="#">
+        <NavLink className={({isActive}) => isActive ? classes.nav__link__active : classes.nav__link} to="/News">{/*Теперь при нажатии на ссылку меняется url в адресной строке */}
             News
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className={classes.nav__link} href="#">
+        <NavLink className={({isActive}) => isActive ? classes.nav__link__active : classes.nav__link} to="/Music">{/*Теперь при нажатии на ссылку меняется url в адресной строке */}
             Music
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className={classes.nav__link} href="#">
+        <NavLink className={({isActive}) => isActive ? classes.nav__link__active : classes.nav__link} to="/Settings">{/*Теперь при нажатии на ссылку меняется url в адресной строке */}
             Settings
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

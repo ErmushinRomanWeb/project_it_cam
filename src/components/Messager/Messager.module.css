@@ -1,0 +1,69 @@
+.messager__wrapper {
+    width: 100%;
+    height: 1000px;
+    /* background-color: bisque; */
+    display: grid;
+    grid-template-columns: 5fr 10fr;
+    font-size: 20px;
+}
+
+.dialogs {
+    padding: 10px;
+    border-right: 2px solid #000;
+    gap: 30px
+}
+
+
+.user__block {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+/*!--------------------------------------*/
+
+.messages {
+    padding: 10px;
+}
+
+.message__block {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message__wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.message__img {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-image: url('https://icdn.lenta.ru/images/2023/05/22/10/20230522102633784/square_320_49215008a65cf7c372a4c2e3452e7028.jpg');
+    border-radius: 50px;
+}
+.message__information__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message__user__name {
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.message__text {
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s; 
+}
