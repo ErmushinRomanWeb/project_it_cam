@@ -21,7 +21,7 @@ import UserPage from "./components/UserPage/UserPage";
 function App() {
   console.log(Route);
   return (
-    <BrowserRouter>
+    <BrowserRouter>{/*это просто компонент-функция, в которой прописано, чт о */}
       <div className={`${classes.app__wrapper} ${classes.center}`}>
         {/*Так, как в итоге в className должна попасть строка, то мы можем использовать строковый литерал, нельзя записать 2 выражения через запятую потому, что webpack попытается присвоить модулю сразу 2 выражения js, а это невозможно  */}
         <Header />

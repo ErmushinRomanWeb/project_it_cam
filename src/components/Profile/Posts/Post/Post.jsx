@@ -5,10 +5,9 @@ const Post = ({name, message, photo}) => {
   return (
     <div className={classes.post__wrapper}>
       <div className={classes.img__wrapper}>
-        <img
-          src={photo}
+        <div style={{backgroundImage: `url(${photo})`}}
           className={classes.post__img}
-        />
+        /><div/>
       </div>
       <h3>{name}</h3>
       <p className={classes.post__text}>{message}</p>
