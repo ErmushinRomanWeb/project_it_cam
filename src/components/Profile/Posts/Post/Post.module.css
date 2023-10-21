@@ -6,11 +6,12 @@
 .img__wrapper{
   width: 100px;
   height: 100px;
-  background-color: burlywood;
-  padding-right: 20px;
 }
 .post__img  {
-  display: block;
-  max-width: 100px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  background-position: center;
+  background-size: cover;
 }
 /* Внимание, тут мы каждому селектору задали псевдоним, через grid-area, потом в родительском элементе использовали  */

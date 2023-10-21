@@ -36,34 +36,3 @@
     gap: 10px;
 }
 
-.message__wrapper {
-    display: flex;
-    gap: 10px;
-}
-
-.message__img {
-    height: 100px;
-    width: 100px;
-    background-size: cover;
-    background-image: url('https://icdn.lenta.ru/images/2023/05/22/10/20230522102633784/square_320_49215008a65cf7c372a4c2e3452e7028.jpg');
-    border-radius: 50px;
-}
-.message__information__block {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.message__user__name {
-    font-weight: 500;
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s;
-}
-
-.message__text {
-    font-weight: 500;
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s; 
-}

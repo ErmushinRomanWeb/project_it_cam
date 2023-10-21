@@ -18,18 +18,18 @@ import UserPage from "./components/UserPage/UserPage";
 //   },
 // }
 
-function App() {
-  console.log(Route);
+function App({posts, dialogsData, messageData}) {//!ВАЖНО:деструктуризация в пропсах вытаскивает из объекта props ключи и кладет ссылку на объект в параметр!!!
+  console.log(posts, dialogsData, messageData);
   return (
-    <BrowserRouter>
+    <BrowserRouter>{/*это просто компонент-функция, в которой прописано, чт о */}
       <div className={`${classes.app__wrapper} ${classes.center}`}>
         {/*Так, как в итоге в className должна попасть строка, то мы можем использовать строковый литерал, нельзя записать 2 выражения через запятую потому, что webpack попытается присвоить модулю сразу 2 выражения js, а это невозможно  */}
         <Header />
         <Nav />
         <div className={classes.main__wrapper}>
           <Routes>
-            <Route path="/Messager/*" element={<Messager />} />{/*Это  просто функция, которая импортированна из библиотеки*/}
-            <Route path="/" element={<Profile />} />
+            <Route path="/Messager/*" element={<Messager messageData={messageData} dialogsData={dialogsData}/>} />{/*Это  просто функция, которая импортированна из библиотеки*/}
+            <Route path="/" element={<Profile posts={posts}/>} />
             <Route path="/News" element={<News />} />
             <Route path="/Music" element={<Music/>} />
             <Route path="/Settings" element={<Settings/>} />

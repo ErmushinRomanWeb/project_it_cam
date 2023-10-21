@@ -3,7 +3,7 @@ import classes from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-  console.log(classes);
+  // console.log(classes);
   return (
     <nav className= {classes.nav}>
       <ul className={classes.nav__list}>
