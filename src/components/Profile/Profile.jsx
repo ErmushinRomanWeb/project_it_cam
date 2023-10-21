@@ -4,7 +4,7 @@ import AddPost from "./AddPost/AddPost";
 import Person from "./Person/Person";
 import Posts from "./Posts/Posts";
 
-const Profile = () => {
+const Profile = ({posts}) => {
   return (
     <main className={classes.main__content}>
       <div className={classes.main__content__wrapper}>
@@ -12,7 +12,7 @@ const Profile = () => {
       </div>
       <Person />
       <AddPost />
-      <Posts />
+      <Posts posts={posts}/>
     </main>
   );
 };

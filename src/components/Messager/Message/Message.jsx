@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Message.module.css"
 
 const Message = (props) => {
+//!пропс - это всего лишь объект, который просто хранит в себе ключи и их значения, при этом, ключем становится тот атрибут, который мы добавили к компоненте тегу.
   return (
     <div className={classes.message__wrapper}>
       <div style={{backgroundImage: `url(${props.imageUrl})`}} className={classes.message__img}></div>
