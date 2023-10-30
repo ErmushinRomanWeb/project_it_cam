@@ -1,3 +1,7 @@
+.nav__wrapper{
+  background-color: #609679;
+}
+
 .nav {
   background-color: #609679; /* задаем цвет фона */
   color: white; /* устанавливаем белый цвет текста */

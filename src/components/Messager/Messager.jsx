@@ -4,9 +4,16 @@ import { NavLink } from "react-router-dom";
 import Dialogs from "./Dialog/Dialog";
 import Message from "./Message/Message";
 
-
+// Developer: Inspect Editor Tokens and Scopes
 
 //*========================================Диалоги================================================
+
+
+const textRef = React.createRef()
+const textAlert = () => {
+  let textInput = textRef.current.value
+  return alert(textInput)
+}
 
 
 const Messager = ({dialogsData, messageData}) => {
@@ -36,6 +43,10 @@ const Messager = ({dialogsData, messageData}) => {
             <h3 className={classes.messages__heading}>messages</h3>
             <div className={classes.message__block}>
               {messagesElements}
+            </div>
+            <div className="inputBlock">
+              <textarea ref={textRef}  name="" id="" cols="30" rows="10"></textarea>
+              <button onClick={textAlert}>Отправить</button>{/*в данном примере я не использую функцию оберткук так, как передаю именно логику */}
             </div>
           </div>
         </div>
