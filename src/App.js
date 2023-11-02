@@ -8,7 +8,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import UserPage from "./components/UserPage/UserPage";
 
 
 function App({ state, addPost}) {//!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛИ ВЫРАЖЕНИЕ, ПРИСВАИВАНИЯ ПЕРЕМЕННЫМ ЗНАЧЕНИЯ, И В ПЕРЕМЕННОЙ STATE ОКАЗАЛАСЬ ССЫЛКА НА ОБЪЕКТ В ОПЕРАТИВНОЙ ПАМЯТИ, КОТОРЫЙ СОДЕРЖИТ ССЫЛКИ НА ОБЪЕКТЫ ИЗ STATE.JS, А В ADDPOST НАХОДИТСЯ ССЫЛКА НА 

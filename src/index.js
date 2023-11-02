@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createGlobalStyle} from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
-import { addPost, state } from './redux/state';//импорт объекта с данными
+import rerender from './render';
+import { state } from './redux/state';
 
+//!index.js стал нашей точкой входа, то есть местом, где происходит вызов функции render и по сути, создания всего dom.
+
+//!ВАЖНО: МЫ СЮДА МЫ ПЕРЕДАЛИ ДАННЫЕ ИЗ BLL И ФУКНЦИЮ, КОТОРАЯ ЗАПУСКАЕТ UI И ВОЗВРАЩАЕТ ОГРОМНЫЙ ОБЪЕКТ ИЗ КОТОРОГО ПОТОМ ПОЛУЧАЕТСЯ ВЕСЬ DOM
 
 const StyledGlobal = createGlobalStyle`
   * {
@@ -15,21 +16,7 @@ const StyledGlobal = createGlobalStyle`
 `
 
 //*--------------------------------------------------------ТОЧКА ВХОДА--------------------------------------------------------
-console.log(state);
-const root = ReactDOM.createRoot(document.getElementById('root'));// в переменную кладу результат поиска dom объекта, то есть, в переменной лежит ссылка на dom объект, сформированный на основе одного тега. когда v8 будет читать код, то dom уже будет готово, так, что v8 просто будет искать готовый объект.
-
-export const rerender = () => {
-  root.render(//тут я использую метод dom объкта, который рендерит в 
-    <React.StrictMode>
-      <StyledGlobal/>
-      {/* <App  posts={posts} dialogsData={dialogsData} messageData={messageData}/> */}
-      <App  state={state} addPost={addPost}/>
-    </React.StrictMode>
-  );
-}
-
-rerender()
-
+rerender(state)//! то есть, вызвал функцию, которая объявляна в render.js, и в нее прередал объект, и callback функцию в аргументы. Таким образом, параметрам присваивается ссылки на объекты.
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

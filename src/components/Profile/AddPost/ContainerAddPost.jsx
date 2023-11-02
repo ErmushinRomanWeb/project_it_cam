@@ -16,34 +16,5 @@ const newPostFunc = (callback) => {
   debugger
 };
 
-const AddPost = ({addPost}) => {
-  console.log(addPost);
-  debugger
-  return (
-    <div className={classes.person__posts__wrapper}>
-      {/*класс присваивается из стилевого модуля css достается из объекта, в который попадает */}{" "}
-      {/*Обертка для блоков постов постов*/}
-      <h2 className={classes.post__header}>Add post</h2>
-      <div className={classes.post__input__wrapper}>
-          <input ref={newImageElement} type="file" name="" id="" />
-          <br />
-          <input ref={newNameElement} type="text" placeholder="Введите имя" />
-          <br />
-          <textarea
-            ref={newPostElement} //в данном моменте в атрибут попадает объект, и в этот объектпопадает ссылка на готовый dom объект
-            className={classes.post__input}
-            placeholder="write post"
-          />
-          <br />
-          <button
-            onClick={() => newPostFunc(addPost)}
-            className={classes.add__post__button}
-          >
-            add post
-          </button>
-      </div>
-    </div>
-  );
-};
 
-export default AddPost;
+export default newPostFunc;

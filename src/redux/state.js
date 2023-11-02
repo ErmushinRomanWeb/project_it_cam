@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import { rerender } from "..";
+import rerender from "../render";
 
 export const state = {
   profilePage: {
@@ -113,8 +112,7 @@ export const state = {
   },
 };
 
-export const addPost = (newImg ,newName, newMessage) => {
-  debugger//мы объявили фукнцию, которая принимает аргументом строку
+export const addPost = (newImg ,newName, newMessage) => {//мы объявили фукнцию, которая принимает аргументом строку
   //цель - добавить в массив с постами новый элемент массива, который помтом, на основе которого в новый промапеный массив будет добавлятся новый элемент массива.
   let newPost = {//объявили переменную, в которую поместится объект форма, в ключ message которого попадет строка, из аргумента.
     id: 5,
@@ -122,7 +120,6 @@ export const addPost = (newImg ,newName, newMessage) => {
     message: newMessage,
     imageUrl:newImg
   };
-  debugger
   state.profilePage.posts.push(newPost)//в результате функция всавит в исходный массив переменную newPost, которая содержит в себе ссылку на объект, то еть, в результате выполнения этого кода в массиве будут появлятся новые элементы.
-  rerender()//так как у нас в проекте рендер осуществляется только в index.js, то мы оборачиваем 
+  rerender(state)//!так как мы должны соблюдать принциб single responsebility, то я могу возложить на файл, который является держателем объекта state положить ссылку на него в параметр
 };
