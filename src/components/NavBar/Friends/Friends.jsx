@@ -2,7 +2,6 @@ import React from "react";
 import Friend from "./Friend/Friend";
 
 const Friends = ({ friends }) => {
-    console.log(friends);
   const friendsList = friends.map((friend) => {
         return <Friend friend={friend}/>
   });

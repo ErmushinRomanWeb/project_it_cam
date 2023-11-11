@@ -14,7 +14,7 @@ export const state = {
       {
         id: 2,
         name: "Pavel",
-        message: "Я Паша, я ебашу",
+        message: "Я паша, меня ебашит ",
         imageUrl: "https://i.gifer.com/CoFM.gif",
       },
       {
@@ -25,6 +25,11 @@ export const state = {
           "https://media.tenor.com/jXpKV1MVgdMAAAAM/the-fate-of-the-furious-the-fate-of-the-furious-gi-fs.gif",
       },
     ],
+    newPostInfo: {
+      newPostName: "",
+      newPostText: "",
+      newPostImage: "",
+    },
   },
 
   messgePage: {
@@ -84,6 +89,7 @@ export const state = {
         imageUrl: "https://i.gifer.com/embedded/download/12cM.gif",
       },
     ],
+    newMessageTextValue: "",
   },
 
   friendsBlock: {
@@ -112,14 +118,49 @@ export const state = {
   },
 };
 
-export const addPost = (newImg ,newName, newMessage) => {//мы объявили фукнцию, которая принимает аргументом строку
+export const addPost = () => {
+  let { newPostName, newPostText, newPostImage } =
+    state.profilePage.newPostInfo; //браузер объявит 3 переменные, используя операторы е
+  //мы объявили фукнцию, которая принимает аргументом строку
   //цель - добавить в массив с постами новый элемент массива, который помтом, на основе которого в новый промапеный массив будет добавлятся новый элемент массива.
-  let newPost = {//объявили переменную, в которую поместится объект форма, в ключ message которого попадет строка, из аргумента.
+  let newPost = {
+    //объявили переменную, в которую поместится объект форма, в ключ message которого попадет строка, из аргумента.
     id: 5,
-    name: newName,
-    message: newMessage,
-    imageUrl:newImg
+    name: newPostName,
+    message: newPostText,
+    imageUrl: newPostImage,
   };
-  state.profilePage.posts.push(newPost)//в результате функция всавит в исходный массив переменную newPost, которая содержит в себе ссылку на объект, то еть, в результате выполнения этого кода в массиве будут появлятся новые элементы.
-  rerender(state)//!так как мы должны соблюдать принциб single responsebility, то я могу возложить на файл, который является держателем объекта state положить ссылку на него в параметр
+  state.profilePage.posts.push(newPost); //в результате функция всавит в исходный массив переменную newPost, которая содержит в себе ссылку на объект, то еть, в результате выполнения этого кода в массиве будут появлятся новые элементы.
+  rerender(state); //!так как мы должны соблюдать принциб single responsebility, то я могу возложить на файл, который является держателем объекта state положить ссылку на него в параметр
+  addNewInform("", "", ""); //аргументами в данную функцию передаю 3 пустые строки, и тогда параметры станут ссылками на пустоту
+};
+
+export const addNewInform = (nameValue, textValue, imgValue) => {
+  state.profilePage.newPostInfo.newPostName = nameValue;
+  state.profilePage.newPostInfo.newPostText = textValue;
+  state.profilePage.newPostInfo.newPostImage = imgValue;
+
+  rerender(state);
+};
+
+export const newMessageValueChanger = (newMesageValue) => {
+  state.messgePage.newMessageTextValue = newMesageValue;
+  rerender(state);
+  console.log(state.messgePage.newMessageTextValue);
+};
+
+export const addNewMessage = () => {
+  let NewMessageText = state.messgePage.newMessageTextValue;
+
+  let NewMessageElement = {
+    id: 1,
+    name: "Roman",
+    message: NewMessageText,
+    imageUrl:
+      "https://pa1.aminoapps.com/6681/9de778edbb959c86d7defd3013ff00c25ba9ebaa_00.gif",
+  };
+
+  state.messgePage.messageData.push(NewMessageElement);
+  rerender(state)
+  newMessageValueChanger('')
 };

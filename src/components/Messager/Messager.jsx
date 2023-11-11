@@ -8,15 +8,20 @@ import Message from "./Message/Message";
 
 //*========================================Диалоги================================================
 
+const textRef = React.createRef();
 
-const textRef = React.createRef()
-const textAlert = () => {
-  let textInput = textRef.current.value
-  return alert(textInput)
-}
+const addMessageText = (newMessageValueChanger) => {
+  let newText = textRef.current.value;
+  newMessageValueChanger(newText);
+};
 
-
-const Messager = ({dialogsData, messageData}) => {
+const Messager = ({
+  dialogsData,
+  messageData,
+  newMessageTextValue,
+  newMessageValueChanger,
+  addNewMessage,
+}) => {
   let dialogsElements = dialogsData.map((el) => {
     //!в данной переменной будет новый массив
     return <Dialogs id={el.id} name={el.name} imageUrl={el.imageUrl} />; //!то есть, я выделил из массива каждый элемент и на основании информации, хранящейся в ключах объектов, которые являеются элементами массива, я создал новый массив, состоящий из компонентов, в которые пропсами я передал информацию
@@ -30,6 +35,7 @@ const Messager = ({dialogsData, messageData}) => {
       message={mes.message}
     />
   ));
+
   return (
     <section>
       <h2>Dialogs</h2>
@@ -41,12 +47,18 @@ const Messager = ({dialogsData, messageData}) => {
         <div>
           <div className={classes.messages}>
             <h3 className={classes.messages__heading}>messages</h3>
-            <div className={classes.message__block}>
-              {messagesElements}
-            </div>
+            <div className={classes.message__block}>{messagesElements}</div>
             <div className="inputBlock">
-              <textarea ref={textRef}  name="" id="" cols="30" rows="10"></textarea>
-              <button onClick={textAlert}>Отправить</button>{/*в данном примере я не использую функцию оберткук так, как передаю именно логику */}
+              <textarea
+                value={newMessageTextValue}
+                onChange={() => addMessageText(newMessageValueChanger)}
+                ref={textRef}
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+              ></textarea>
+              <button onClick={addNewMessage}>Отправить</button>{/*сюда я прокинул ссылку на функциональный объект из state   */}
             </div>
           </div>
         </div>
