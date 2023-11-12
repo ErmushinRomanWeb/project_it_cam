@@ -8,14 +8,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import UserPage from "./components/UserPage/UserPage";
 
-
-function App({ state, addPost}) {//!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛИ ВЫРАЖЕНИЕ, ПРИСВАИВАНИЯ ПЕРЕМЕННЫМ ЗНАЧЕНИЯ, И В ПЕРЕМЕННОЙ STATE ОКАЗАЛАСЬ ССЫЛКА НА ОБЪЕКТ В ОПЕРАТИВНОЙ ПАМЯТИ, КОТОРЫЙ СОДЕРЖИТ ССЫЛКИ НА ОБЪЕКТЫ ИЗ STATE.JS, А В ADDPOST НАХОДИТСЯ ССЫЛКА НА 
+function App({ state, addPost, addNewInform, newMessageValueChanger, addNewMessage }) {// в в созданный объект props попадают ключи - название атрибута при вызове, и значения
+  //!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛИ ВЫРАЖЕНИЕ, ПРИСВАИВАНИЯ ПЕРЕМЕННЫМ ЗНАЧЕНИЯ, И В ПЕРЕМЕННОЙ STATE ОКАЗАЛАСЬ ССЫЛКА НА ОБЪЕКТ В ОПЕРАТИВНОЙ ПАМЯТИ, КОТОРЫЙ СОДЕРЖИТ ССЫЛКИ НА ОБЪЕКТЫ ИЗ STATE.JS, А В ADDPOST НАХОДИТСЯ ССЫЛКА НА
   //!ВАЖНО:деструктуризация в пропсах вытаскивает из объекта props ключи и кладет ссылку на объект в параметр!!!
   const {
-    profilePage: { posts },
-    messgePage: { dialogsData, messageData },//тут мы видим деструктуризацию объекта, то есть, призваеине значений ключей объкта переменным
+    profilePage: { posts, newPostInfo},//то есть, теперь данные переменные - это ссылки на ключи большого объекта
+    messgePage: { dialogsData, messageData, newMessageTextValue}, //тут мы видим деструктуризацию объекта, то есть, призваеине значений ключей объкта переменным
     friendsBlock: { friends },
   } = state;
 
@@ -31,11 +30,14 @@ function App({ state, addPost}) {//!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛ�
             <Route
               path="/Messager/*"
               element={
-                <Messager messageData={messageData} dialogsData={dialogsData} />
+                <Messager newMessageTextValue={newMessageTextValue} messageData={messageData} dialogsData={dialogsData} newMessageValueChanger={newMessageValueChanger} addNewMessage={addNewMessage}/>
               }
             />
             {/*Это  просто функция, которая импортированна из библиотеки*/}
-            <Route path="/" element={<Profile posts={posts} addPost={addPost} />} />
+            <Route
+              path="/"
+              element={<Profile newPostInfo={newPostInfo} posts={posts} addPost={addPost} addNewInform={addNewInform}/>}
+            />
             <Route path="/News" element={<News />} />
             <Route path="/Music" element={<Music />} />
             <Route path="/Settings" element={<Settings />} />
@@ -45,8 +47,6 @@ function App({ state, addPost}) {//!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛ�
     </BrowserRouter>
   );
 }
-const info = document.querySelector("Header_header__xvM1x");
-console.log(info);
 export default App;
 
 //помню, что строчные элементы выстраиваются в одну строку, а блочные выстраиваются друг под другом, и начинаются с новой строки.

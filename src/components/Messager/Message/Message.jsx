@@ -2,8 +2,7 @@ import React from "react";
 import classes from "./Message.module.css"
 
 const Message = (props) => {
-  const info = document
-  console.log(info);
+
 //!пропс - это всего лишь объект, который просто хранит в себе ключи и их значения, при этом, ключем становится тот атрибут, который мы добавили к компоненте тегу.
   return (
     <div className={classes.message__wrapper}>

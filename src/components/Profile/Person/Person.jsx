@@ -9,12 +9,10 @@ const Person = () => {
 
 
   const hello2 = (hello) => {//! в данной переменной находится ссылка на функцию hello!!!
-    console.log(hello);
     const result = hello(2, 2) 
     return result
   }
   const variable = hello2(hello)
-  console.log(variable);
 
 
   return (

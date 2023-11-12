@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Post.module.css";
 
 const postReferense = React.createRef();
-console.log(postReferense);
 const postMessage = () => {
   let postText = postReferense.current.value
 }
