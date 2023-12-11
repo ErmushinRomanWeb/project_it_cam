@@ -10,6 +10,8 @@ import Message from "./Message/Message";
 
 const textRef = React.createRef();
 
+console.log(textRef);
+
 const addMessageText = (newMessageValueChanger) => {
   let newText = textRef.current.value;
   newMessageValueChanger(newText);

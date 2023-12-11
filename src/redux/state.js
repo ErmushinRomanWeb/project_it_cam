@@ -1,4 +1,3 @@
-import rerender from "../render";
 
 export const state = {
   profilePage: {
@@ -65,14 +64,14 @@ export const state = {
       {
         id: 1,
         name: "Roman",
-        message: "Привет, петухи и прекрасная дама",
+        message: "Привет)",
         imageUrl:
           "https://pa1.aminoapps.com/6681/9de778edbb959c86d7defd3013ff00c25ba9ebaa_00.gif",
       },
       {
         id: 2,
         name: "Pavel",
-        message: "Я Паша, я ебашу",
+        message: "Я Паша",
         imageUrl: "https://i.gifer.com/CoFM.gif",
       },
       {
@@ -118,6 +117,7 @@ export const state = {
   },
 };
 
+
 export const addPost = () => {
   let { newPostName, newPostText, newPostImage } =
     state.profilePage.newPostInfo; //браузер объявит 3 переменные, используя операторы е
@@ -131,7 +131,7 @@ export const addPost = () => {
     imageUrl: newPostImage,
   };
   state.profilePage.posts.push(newPost); //в результате функция всавит в исходный массив переменную newPost, которая содержит в себе ссылку на объект, то еть, в результате выполнения этого кода в массиве будут появлятся новые элементы.
-  rerender(state); //!так как мы должны соблюдать принциб single responsebility, то я могу возложить на файл, который является держателем объекта state положить ссылку на него в параметр
+  rerenderDom(state); //!так как мы должны соблюдать принциб single responsebility, то я могу возложить на файл, который является держателем объекта state положить ссылку на него в параметр
   addNewInform("", "", ""); //аргументами в данную функцию передаю 3 пустые строки, и тогда параметры станут ссылками на пустоту
 };
 
@@ -140,12 +140,12 @@ export const addNewInform = (nameValue, textValue, imgValue) => {
   state.profilePage.newPostInfo.newPostText = textValue;
   state.profilePage.newPostInfo.newPostImage = imgValue;
 
-  rerender(state);
+  rerenderDom(state);
 };
 
 export const newMessageValueChanger = (newMesageValue) => {
   state.messgePage.newMessageTextValue = newMesageValue;
-  rerender(state);
+  rerenderDom(state);
   console.log(state.messgePage.newMessageTextValue);
 };
 
@@ -161,6 +161,13 @@ export const addNewMessage = () => {
   };
 
   state.messgePage.messageData.push(NewMessageElement);
-  rerender(state)
+rerenderDom(state)
   newMessageValueChanger('')
 };
+
+let rerenderDom //!переменная, которая станет функцией ререндера
+
+
+export const subscriber = (observer) => {//вызов данного объекта из index.js / принял ссылку на функциональный объект rerender
+  rerenderDom = observer//сделали пустую переменную ссылкой на функциональный объект rerender
+}
