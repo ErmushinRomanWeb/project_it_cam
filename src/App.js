@@ -10,7 +10,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 function App({ state, addPost, addNewInform, newMessageValueChanger, addNewMessage }) {// в в созданный объект props попадают ключи - название атрибута при вызове, и значения
-  //!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛИ ВЫРАЖЕНИЕ, ПРИСВАИВАНИЯ ПЕРЕМЕННЫМ ЗНАЧЕНИЯ, И В ПЕРЕМЕННОЙ STATE ОКАЗАЛАСЬ ССЫЛКА НА ОБЪЕКТ В ОПЕРАТИВНОЙ ПАМЯТИ, КОТОРЫЙ СОДЕРЖИТ ССЫЛКИ НА ОБЪЕКТЫ ИЗ STATE.JS, А В ADDPOST НАХОДИТСЯ ССЫЛКА НА
+  //!ТО ЕСТЬ, ТУТ МЫ ПРОИЗВЕЛИ ВЫРАЖЕНИЕ, ПРИСВАИВАНИЯ ПЕРЕМЕННЫМ ЗНАЧЕНИЯ, И В ПЕРЕМЕННОЙ STATE ОКАЗАЛАСЬ ССЫЛКА НА ОБЪЕКТ В ОПЕРАТИВНОЙ ПАМЯТИ, КОТОРЫЙ СОДЕРЖИТ ССЫЛКИ НА ОБЪЕКТЫ ИЗ STATE.JS
   //!ВАЖНО:деструктуризация в пропсах вытаскивает из объекта props ключи и кладет ссылку на объект в параметр!!!
   const {
     profilePage: { posts, newPostInfo},//то есть, теперь данные переменные - это ссылки на ключи большого объекта
@@ -50,3 +50,5 @@ function App({ state, addPost, addNewInform, newMessageValueChanger, addNewMessa
 export default App;
 
 //помню, что строчные элементы выстраиваются в одну строку, а блочные выстраиваются друг под другом, и начинаются с новой строки.
+
+const hyi = 2 + 5 + 5
